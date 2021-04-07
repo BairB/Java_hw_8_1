@@ -56,72 +56,64 @@ class RadioTest {
     @Test
     public void shouldIncreaseStationNumber() {
         Radio radio = new Radio();
-        int station = 7;
-        int actual = radio.increaseStationNumber(station);
+        radio.setCurrentStation(7);
+        int actual = radio.increaseStationNumber();
         assertEquals(8, actual);
-        //  System.out.println(actual);
     }
 
     @Test
     public void increaseStationNumberIfMax() {
         Radio radio = new Radio();
-        int station = 9;
-        int actual = radio.increaseStationNumber(station);
+        radio.setCurrentStation(9);
+        int actual = radio.increaseStationNumber();
         assertEquals(0, actual);
-        //  System.out.println(actual);
     }
 
     @Test
     public void shouldDecreaseStationNumber() {
         Radio radio = new Radio();
-        int station = 6;
-        int actual = radio.decreaseStationNumber(station);
-        assertEquals(5, actual);
-        //System.out.println(actual);
+        radio.setCurrentStation(8);
+        int actual = radio.decreaseStationNumber();
+        assertEquals(7, actual);
     }
 
     @Test
     public void decreaseStationNumberIfMin() {
         Radio radio = new Radio();
-        int station = 0;
-        int actual = radio.decreaseStationNumber(station);
+        radio.setCurrentStation(0);
+        int actual = radio.decreaseStationNumber();
         assertEquals(9, actual);
-        //System.out.println(actual);
     }
 
     @Test
     public void shouldIncreaseVolume() {
         Radio radio = new Radio();
-        int volume = 5;
-        int actual = radio.increaseVolume(volume);
-        assertEquals(6, actual);
-        //System.out.println(actual);
+        radio.setCurrentStation(5);
+        int actual = radio.increaseVolume();
+        assertEquals(1, actual);
     }
 
     @Test
     public void increaseVolumeIfMax() {
         Radio radio = new Radio();
-        int volume = 10;
-        int actual = radio.increaseVolume(volume);
+        radio.setVolume(10);
+        int actual = radio.increaseVolume();
         assertEquals(10, actual);
-        //System.out.println(actual);
     }
 
     @Test
     public void shouldDecreaseVolume() {
         Radio radio = new Radio();
-        int volume = 8;
-        int actual = radio.decreaseVolume(volume);
+        radio.setVolume(8);
+        int actual = radio.decreaseVolume();
         assertEquals(7, actual);
-        //System.out.println(actual);
     }
 
     @Test
     public void decreaseVolumeIfMin() {
         Radio radio = new Radio();
-        int volume = 0;
-        int actual = radio.decreaseVolume(volume);
+        radio.setVolume(0);
+        int actual = radio.decreaseVolume();
         assertEquals(0, actual);
-        //System.out.println(actual);
     }
 }
